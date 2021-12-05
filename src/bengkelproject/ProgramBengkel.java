@@ -14,6 +14,7 @@ public class ProgramBengkel {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Outputpembuat();
         String simpan;
         do {
             BacaIdentitas();
@@ -23,7 +24,9 @@ public class ProgramBengkel {
             String catatan = keluhanUser();
             int harga = hargaTotal(layanan,motor_pengguna);
             Output(jenis_motor,layanan,catatan,sparepart,harga);//int motor, String layanan,String keluhan, String sparepart,int harga_total
-            System.out.println("\n Apakah data sudah benar? Y/N ");
+            System.out.print("\n Apakah data sudah benar? Y/N ");
+            System.out.println("                                                                                              exit program : x");
+            System.out.print(" ");
             simpan = input.next();
         } while (simpan.equalsIgnoreCase("y") || simpan.equalsIgnoreCase("n"));
     }
@@ -134,26 +137,26 @@ public class ProgramBengkel {
     
     //program untuk sparepart
     static String input_Sparepart() {
-        String[] sparepart = {"  Busi\n", "  Ban dalam depan\n","  Ban dalam belakang\n","  Ban luar depan\n",
-                              "  Ban luar belakang\n","  Rantai\n", "  Drive Belt\n", "  Coolant\n", "  Kampas rem\n", 
-                              "  Filter udara\n", "  Aki\n", "  Perbersihan CVT\n", "  Lampu depan\n","  Lampu belakang\n",
-                              "  Lampu seign\n","  Kampas kopling\n","  Gir depan\n","  Gir belakang\n","  Tidak ada\n"};
+        String[] sparepart = {"  Busi", "  Ban dalam depan","  Ban dalam belakang","  Ban luar depan",
+                              "  Ban luar belakang","  Rantai", "  Drive Belt", "  Coolant", "  Kampas rem", 
+                              " Filter udara", " Aki", " Perbersihan CVT", " Lampu depan"," Lampu belakang",
+                              " Lampu seign"," Kampas kopling"," Gir depan"," Gir belakang"," Tidak ada"};
         System.out.println("\nPergantian Sparepart");
         for (int i = 0; i < sparepart.length; i++) {
-            System.out.print((i + 1) + "." + sparepart[i]);
+            System.out.print((i + 1) + "." + sparepart[i]+"\n");
         }
         System.out.print(" Masukkan pilihan : ");
         int n = input.nextInt();
         input_hargaSparepart(n);
         String pilihan = sparepart[n - 1];
         String pil_spare = " ";
-        pil_spare = pilihan;
+        pil_spare = pilihan ;
         if (n > 0 && n < sparepart.length) {
             String jawab2 = "";
+            System.out.println("\n Adakah tambahan lainnya (Y/N)?");
+            System.out.print(" ");
+            String jawab = input.next();
             do {
-                System.out.println("\n Adakah tambahan lainnya (Y/N)?");
-                System.out.print(" ");
-                String jawab = input.next();
                 if (jawab.equalsIgnoreCase("y")) {
                     System.out.print("\n Masukkan tambahan : ");
                     int x = input.nextInt();
@@ -164,7 +167,7 @@ public class ProgramBengkel {
                     else{
                        pil_spare =" -\n"; 
                     }
-                    pil_spare += pilihan;
+                    pil_spare += (","+pilihan);
                     System.out.println("\n Adakah tambahan lainnya (Y/N)?");
                     System.out.print(" ");
                     jawab2 = input.next();
@@ -318,11 +321,21 @@ public class ProgramBengkel {
         System.out.print("\t | Jenis motor         \t: " + motor);
         System.out.print("\t | Layanan             \t:  " + layanan);
         System.out.print("\t | Pergantian oli      \t:  " + pilih_oli);
-        System.out.print("\t | Pergantian sparepart\t: "+sparepart);
+        System.out.print("\t | Pergantian sparepart\t: "+sparepart+"\n");
         System.out.print("\t | Perkiraan Biaya     \t: ");
         System.out.println(" Rp. " + harga_total+" *");
         System.out.println("\t | Keluhan performa  \t:  " + keluhan);
         System.out.println("\n \t * biaya dapat berubah jika ada saran pergantian sparepart oleh mekanik");
         System.out.println("\t        -------------------------------------");
+    }
+    
+    static void Outputpembuat(){
+        System.out.println(" ______________________________________________");
+        System.out.println("| Kelompok D :                                 |");
+        System.out.println("| 1 Gerardus Kristha Bayu Indraputra 215314004 |\n"+
+                           "| 2. Davino Triyono 215314013                  |\n"+
+                           "| 3. Mikael Oktavian Dwi Sukmadianto 215314029 |");
+        System.out.println(" _______________________________________________\n");
+
     }
 }
