@@ -16,6 +16,7 @@ public class ProgramBengkel {
     public static void main(String[] args) {
         Outputpembuat();
         String simpan;
+        int a = 0;
         do {
             BacaIdentitas();
             int motor_pengguna=jenisMotor();
@@ -28,6 +29,14 @@ public class ProgramBengkel {
             System.out.println("                                                                                              exit program : x");
             System.out.print(" ");
             simpan = input.next();
+            if(simpan.equalsIgnoreCase("y")){
+                a++;
+                System.out.println("Nomor Antrian : "+a);
+            }
+            else if(simpan.equalsIgnoreCase("n")){
+                System.out.println("Nomor Antrian : - ");
+            }
+            System.out.println("Nomor Antrian : ");
         } while (simpan.equalsIgnoreCase("y") || simpan.equalsIgnoreCase("n"));
     }
 
