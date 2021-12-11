@@ -29,14 +29,7 @@ public class ProgramBengkel {
             System.out.println("                                                                                              exit program : x");
             System.out.print(" ");
             simpan = input.next();
-            if(simpan.equalsIgnoreCase("y")){
-                a++;
-                System.out.println("Nomor Antrian : "+a);
-            }
-            else if(simpan.equalsIgnoreCase("n")){
-                System.out.println("Nomor Antrian : - ");
-            }
-            System.out.println("Nomor Antrian : ");
+            Antrian(simpan, a);
         } while (simpan.equalsIgnoreCase("y") || simpan.equalsIgnoreCase("n"));
     }
 
@@ -56,8 +49,7 @@ public class ProgramBengkel {
             System.out.print((i + 1) + "." + jenisMotor[i]);
         }
         System.out.print("\n Apakah jenis motor anda? ");
-        String n = input.next();
-        int jm = (Integer.valueOf(n));
+        int jm = input.nextInt();
         jenis_motor = jenisMotor[jm - 1];
         return jm;
     }
@@ -319,6 +311,17 @@ public class ProgramBengkel {
         }
             harga_total=hargaOli+hargaSparepart;
         return harga_total;
+    }
+    
+    static int Antrian(String simpan, int a){
+        if(simpan.equalsIgnoreCase("y")){
+                a++;
+                System.out.println("\n************************************** Nomor Antrian : "+a+ " **************************************");
+            }
+            else if(simpan.equalsIgnoreCase("n")){
+                System.out.println("\n************************************** Nomor Antrian : - **************************************");
+            }
+        return a;
     }
     
     static void Output(String motor, String layanan,String keluhan, String sparepart,int harga_total) {
