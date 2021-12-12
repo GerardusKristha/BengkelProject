@@ -12,8 +12,8 @@ public class ProgramBengkel {
     static String nama, nomor_plat,jenis_motor,pilih_oli,output;
     static int  hargaOli,hargaSparepart;
     static Scanner input = new Scanner(System.in);
-
-    public static void main(String[] args) {
+    
+    public static void main(String[] args){
         Outputpembuat();
         String simpan;
         int a = 0;
@@ -32,23 +32,22 @@ public class ProgramBengkel {
             Antrian(simpan, a);
         } while (simpan.equalsIgnoreCase("y") || simpan.equalsIgnoreCase("n"));
     }
-
-    static void BacaIdentitas() {
+    static void BacaIdentitas(){
         System.out.println("\n\n");
         System.out.println("        SELAMAT DATANG DI AHHAY,HADIR UNTUK MEMBANTU MASALAH MOTOR ANDA\n" +"   ____________________________________________________________________________");
         System.out.print("\nMasukkan Nama Anda        : ");
-        nama = input.next();
+        nama = input.nextLine();
         System.out.print("Masukkan Nomor Plat Motor : ");
-        nomor_plat = input.next();
+        nomor_plat = input.nextLine();
     }
     static int jenisMotor(){
         System.out.println();
         System.out.println("Jenis motor :");
-        String[] jenisMotor = {" Matic\n" , " Manual"};
+        String[] jenisMotor = {" Matic\n" , " Manual\n"};
         for (int i = 0; i < jenisMotor.length; i++) {
             System.out.print((i + 1) + "." + jenisMotor[i]);
         }
-        System.out.print("\n Apakah jenis motor anda? ");
+        System.out.print(" Apakah jenis motor anda? ");
         int jm = input.nextInt();
         jenis_motor = jenisMotor[jm - 1];
         return jm;
@@ -183,11 +182,11 @@ public class ProgramBengkel {
     }
     
     //program untuk keluhan
-    static String keluhanUser() {
+    static String keluhanUser(){
         System.out.println("\n Catatan performa motor anda ? (silahkan tulis di bawah)");
         System.out.print(" ");
-        String keluhan = input.next();
-        return keluhan;
+        String keluhan = input.nextLine();
+                return keluhan;
     }
     
     
@@ -297,7 +296,7 @@ public class ProgramBengkel {
         return harga_sparepart;
     }
     static int hargaTotal(String layanan,int motor){
-        int harga_total;
+        int harga_total=0;
         if(layanan.equals("Ganti oli\n")){
             harga_total = 0;
         }
@@ -309,7 +308,7 @@ public class ProgramBengkel {
             harga_total = 85000;    
             }
         }
-            harga_total=hargaOli+hargaSparepart;
+            harga_total=hargaOli+hargaSparepart+harga_total;
         return harga_total;
     }
     
@@ -332,7 +331,7 @@ public class ProgramBengkel {
         System.out.println("\t | No plat motor       \t:  " + nomor_plat);
         System.out.print("\t | Jenis motor         \t: " + motor);
         System.out.print("\t | Layanan             \t:  " + layanan);
-        System.out.print("\t | Pergantian oli      \t:  " + pilih_oli);
+        System.out.println("\t | Pergantian oli      \t:  " + pilih_oli);
         System.out.print("\t | Pergantian sparepart\t: "+sparepart+"\n");
         System.out.print("\t | Perkiraan Biaya     \t: ");
         System.out.println(" Rp. " + harga_total+" *");
